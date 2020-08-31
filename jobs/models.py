@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Job(models.Model):
+	image = models.ImageField(upload_to='images/') #whenever someone uploads an image it will be saved in 'images/'
+	summary = models.CharField(max_length=200)
