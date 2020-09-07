@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% load static %}
+    {% load static%}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Ingra MB</title>
+    <title>{{blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -44,59 +44,40 @@
     <link href="album.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-    	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		  <a class="navbar-brand" href="{%url 'home'%}">Ingra MB</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" >
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		    <div class="navbar-nav ml-auto">
-		      <a class="nav-item nav-link" href="https://www.instagram.com/ingrambarbosa/">Instagram</a>
-		      <a class="nav-item nav-link" href="{% static 'IngraBarbosaCV.pdf'%}">Resume</a>
-		      <a class="nav-item nav-link" href="{%url 'allblogs'%}">Blog</a>
-		    </div>
-		  </div>
-		</nav>
+     <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{%url 'home'%}">Ingra MB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" href="https://www.instagram.com/ingrambarbosa/">Instagram</a>
+          <a class="nav-item nav-link" href="{% static 'IngraBarbosaCV.pdf'%}">Resume</a>
+          <a class="nav-item nav-link active" href="{%url 'allblogs'%}">Blog</a>
+        </div>
+      </div>
+    </nav>
     </header>
 
-<main role="main">
+<div class="container">
+    <h1 class="text-center pt-3">{{blog.title}}</h1>
+    <br>
+    <p class="text-center">{{blog.pub_date}}</p>  
+    <br>
+    <img class="img-fluid" src="{{blog.image.url}}">    
+    <br>
+    <br>
+    <p>{{blog.body}} </p>
+</div>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h2>Hi, I'm Ingra</h2>
-      <p class="lead text-muted">This is my Django 2.0 project</p>
-      <p>
-        <a href="mailto:ingra_mba@hotmail.com" class="btn btn-primary my-2">Email me</a>
-      </p>
-      <img src="{%static 'lattes.jpg'%}/"height="200">
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-      	{% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          	<img class="card-img-top" src="{{job.image.url}}">
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-</main>
 
 <footer class="text-muted">
-  <div class="container">
+  <div class="container text-center">
   	<p>CopyRight Ingra MB {%now "Y"%}</p>
   </div>
 </footer>
+
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
